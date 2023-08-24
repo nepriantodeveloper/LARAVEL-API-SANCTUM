@@ -1,0 +1,14 @@
+1 INSTALL SANCTUM
+    composer require laravel/sanctum
+    php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+2. MIGRATE DATABASE
+    php artisan migrate
+3. app/Http/Kernel.php
+    'api' => [
+        \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        'throttle:api',
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+4. php artisan make:migration create_products_table
+5. php artisan migrate
+https://www.itsolutionstuff.com/post/laravel-10-rest-api-authentication-using-sanctum-tutorialexample.html
